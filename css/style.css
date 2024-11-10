@@ -13,7 +13,6 @@ body {
     color: #4D2A22;
     background-color: #F9F6F2;
     overflow-x: hidden;
-    padding-top: 60px; /* Space for the fixed navbar */
 }
 
 .container, .index-container {
@@ -33,30 +32,29 @@ p {
 }
 
 /*---------------------------------------------------------
-|                     INDEX PAGE STYLES                    |
+|                        HEADER                           |
 -----------------------------------------------------------*/
 
-/* Navbar Container Styling */
+/* Header Container Styling */
 #index-header {
-    position: fixed;
-    top: 0;
     width: 100%;
-    background-color: rgba(139, 93, 60, 0.9);
+    background-color: rgba(139, 93, 60, 0.9); /* Semi-transparent background */
     color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
-    z-index: 1000;
-    transition: background-color 0.3s;
+    padding: 15px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds depth */
+    transition: background-color 0.3s ease-in-out;
 }
 
+/* Logo Styling */
 #index-header .logo img {
     width: 80px;
     margin-right: 20px;
 }
 
-/* Container for all nav items */
+/* Container for all navigation items */
 #index-header nav {
     display: flex;
     align-items: center;
@@ -64,28 +62,29 @@ p {
     width: 100%;
 }
 
-/* Main Navigation Links (aligned left) */
+/* Main Navigation Links (center-aligned) */
 .nav-links {
     display: flex;
     gap: 20px;
     list-style: none;
     margin: 0;
     flex-grow: 1;
+    justify-content: center; /* Centers main navigation */
 }
 
 .nav-links a {
     color: #FFF3E0;
     text-decoration: none;
-    font-size: 16px;
-    padding: 8px;
+    font-size: 1rem;
+    padding: 8px 12px;
+    border-radius: 5px;
     transition: color 0.3s, background-color 0.3s;
 }
 
 .nav-links a:hover {
-    background-color: #8B5D3C;
+    background-color: #A67C52; /* Consistent with the footer */
     color: #FFF;
     padding: 8px 15px;
-    border-radius: 5px;
 }
 
 /* Authentication Links (aligned right) */
@@ -98,11 +97,11 @@ p {
 }
 
 .auth-links .auth-btn {
-    background-color: #A67C52;
+    background-color: #A67C52; /* Matches footer button styling */
     color: #FFF3E0;
     padding: 8px 15px;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 1rem;
     text-decoration: none;
     transition: background-color 0.3s;
 }
@@ -111,6 +110,10 @@ p {
     background-color: #8B5D3C;
     color: #FFF;
 }
+
+/*---------------------------------------------------------
+|                     INDEX PAGE STYLES                    |
+-----------------------------------------------------------*/
 
 /* Enhanced Welcome Section Styling */
 #home {
@@ -328,4 +331,216 @@ p {
 .course-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/*---------------------------------------------------------
+|                      BEGINNER PAGE                       |
+-----------------------------------------------------------*/
+
+/* Basic styling for body */
+#beginner-page {
+    font-family: Arial, sans-serif;
+    color: #4D2A22; /* Dark brown text color */
+    background-color: #F9F6F2; /* Light background for easy reading */
+    padding-top: 80px; /* To account for fixed header */
+    padding-bottom: 40px; /* Space at bottom before footer */
+}
+
+/* Container for the main content */
+#index-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left; /* Align text to the left for readability */
+}
+
+/* Main Title */
+#index-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #8B5D3C;
+}
+
+/* Section Titles */
+#index-container h2 {
+    font-size: 1.8rem;
+    color: #8B5D3C;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: left;
+    border-bottom: 2px solid #A67C52;
+    padding-bottom: 5px;
+}
+
+/* Paragraphs */
+#index-container p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #4D2A22;
+    margin-bottom: 20px;
+}
+
+/* Unordered lists */
+#index-container ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    padding-left: 20px;
+}
+
+#index-container ul li {
+    font-size: 1rem;
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+/* Bold Text in Lists */
+#index-container ul li strong {
+    color: #8B5D3C;
+    font-weight: bold;
+}
+
+/* Button Styling */
+.quiz-btn {
+    display: inline-block;
+    background-color: #8B5D3C;
+    color: #FFF3E0;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.quiz-btn:hover {
+    background-color: #A67C52;
+    color: #FFF;
+}
+
+/* Centering for the Button */
+.text-center {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* Adjustments for Small Screens */
+@media (max-width: 768px) {
+    #index-container {
+        padding: 10px;
+    }
+
+    #index-container h1 {
+        font-size: 2rem;
+    }
+
+    #index-container h2 {
+        font-size: 1.5rem;
+    }
+
+    #index-container p, #index-container ul li {
+        font-size: 1rem;
+    }
+}
+
+/*---------------------------------------------------------
+|                         FOOTER                          |
+-----------------------------------------------------------*/
+
+#main-footer {
+    background-color: #4D2A22; /* Dark brown background */
+    color: #FFF3E0; /* Light cream text */
+    padding: 40px 0;
+    font-size: 0.95rem;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows content to wrap on smaller screens */
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+    gap: 20px;
+}
+
+.footer-logo {
+    flex: 1 1 250px;
+    text-align: center;
+}
+
+.footer-logo img {
+    width: 60px;
+    margin-bottom: 10px;
+}
+
+.footer-logo p {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #FFD7B5;
+}
+
+.footer-links,
+.footer-contact {
+    flex: 1 1 200px;
+}
+
+.footer-links h4,
+.footer-contact h4 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #FFD7B5;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin: 8px 0;
+}
+
+.footer-links ul li a {
+    color: #FFF3E0;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: #FFD7B5;
+}
+
+.footer-contact p {
+    margin: 5px 0;
+    color: #FFF3E0;
+}
+
+/* Footer Bottom Section - Increased visibility */
+.footer-bottom {
+    background-color: #A67C52; /* Lighter shade to make it more visible */
+    padding: 20px 0; /* Increased padding for more spacing */
+    text-align: center;
+    font-size: 1rem; /* Slightly increased font size */
+    color: #4D2A22; /* Darker text color for better readability */
+    margin-top: 20px;
+    width: 100%;
+    border-top: 1px solid #8B5D3C; /* Subtle border for separation */
+    font-weight: bold; /* Make text bolder for visibility */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer-logo, .footer-links, .footer-contact {
+        margin-bottom: 20px;
+    }
 }

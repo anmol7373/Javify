@@ -1,11 +1,4 @@
 <?php
-    session_start(); // Start the session to access login state
-
-    // Mock login state for demonstration purposes
-    // Uncomment the following lines if you have a real authentication check
-    // $_SESSION['logged_in'] = true;
-    // $_SESSION['username'] = 'John Doe'; // Replace with actual user data
-
     $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
     $username = $isLoggedIn ? $_SESSION['username'] : '';
 ?>
@@ -111,13 +104,9 @@
         <div class="video-container">
             <iframe width="560" height="415" src="https://www.youtube.com/embed/t54pgbVy6t0" frameborder="0" allowfullscreen></iframe>
         </div>
+        <a href="courses.php" class="get-started-btn">Get Started</a>
     </div>
 </section>
-
-<!-- Get Started Button at the Bottom -->
-<div class="index-container text-center">
-    <a href="courses.php" class="get-started-btn">Get Started</a>
-</div>
 
 <?php include 'footer.php'; ?>
 
