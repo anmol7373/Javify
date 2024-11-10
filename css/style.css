@@ -244,3 +244,88 @@ p {
 .get-started-btn:hover {
     background-color: #A67C52;
 }
+
+/*---------------------------------------------------------
+|                   COURSES PAGE STYLES                   |
+-----------------------------------------------------------*/
+
+#courses-page #course-selection {
+    background-color: #F9EFE2; /* Light background */
+    padding: 80px 20px;
+    text-align: center;
+}
+
+#course-selection {
+    padding-top: 100px; /* Adjust as necessary */
+    background-color: #F9EFE2;
+    text-align: center;
+}
+
+#course-selection h1 {
+    font-size: 3rem;
+    color: #4D2A22;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+}
+
+#course-selection p {
+    font-size: 1.25rem;
+    color: #8B5D3C;
+    margin-bottom: 40px;
+}
+
+/* Course Levels Container */
+.course-levels {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap; /* Ensures responsiveness */
+}
+
+/* Course Card Styling */
+.course-card {
+    background-color: #FFF3E0;
+    border: 1px solid #D3B392;
+    border-radius: 10px;
+    width: 300px;
+    padding: 30px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.course-card h2 {
+    font-size: 1.75rem;
+    color: #4D2A22;
+    margin-bottom: 15px;
+}
+
+.course-card p {
+    font-size: 1rem;
+    color: #8B5D3C;
+    margin-bottom: 25px;
+}
+
+/* Button Styling for Course Cards */
+.course-btn {
+    background-color: #8B5D3C;
+    color: #FFF3E0;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.course-btn:hover {
+    background-color: #A67C52;
+    color: #FFF;
+}
+
+/* Hover Effect for Course Cards */
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
