@@ -1,14 +1,15 @@
 <?php
-session_start(); // Start the session to access login state
+    session_start(); // Start the session to access login state
 
-// Mock login state for demonstration purposes
-// Uncomment the following lines if you have a real authentication check
-// $_SESSION['logged_in'] = true;
-// $_SESSION['username'] = 'John Doe'; // Replace with actual user data
+    // Mock login state for demonstration purposes
+    // Uncomment the following lines if you have a real authentication check
+    // $_SESSION['logged_in'] = true;
+    // $_SESSION['username'] = 'John Doe'; // Replace with actual user data
 
-$isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
-$username = $isLoggedIn ? $_SESSION['username'] : '';
+    $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
+    $username = $isLoggedIn ? $_SESSION['username'] : '';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,30 +23,7 @@ $username = $isLoggedIn ? $_SESSION['username'] : '';
 </head>
 <body id="index-page">
 
-<!-- Navbar -->
-<header id="index-header">
-    <div class="index-container">
-        <div class="logo">
-            <img src="images/Logo-2.png" alt="Javify Logo">
-        </div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="courses.php">Courses</a></li>
-                <li><a href="#feature">Quizzes</a></li>
-                <li><a href="contact.php">Contact</a></li>
-            </ul>
-            <ul class="auth-links">
-                <?php if ($isLoggedIn): ?>
-                <li><a href="profile.php" class="btn auth-btn">Hello, <?php echo htmlspecialchars($username); ?></a></li>
-                <li><a href="logout.php" class="btn auth-btn">Logout</a></li>
-                <?php else: ?>
-                <li><a href="login_register.php" class="btn auth-btn">Login / Register</a></li>
-                <?php endif; ?>
-            </ul>
-        </nav>
-    </div>
-</header>
+<?php include 'header.php'; ?>
 
 <!-- Home Section -->
 <section id="home" class="section">
@@ -140,6 +118,8 @@ $username = $isLoggedIn ? $_SESSION['username'] : '';
 <div class="index-container text-center">
     <a href="courses.php" class="get-started-btn">Get Started</a>
 </div>
+
+<?php include 'footer.php'; ?>
 
 </body>
 </html>
