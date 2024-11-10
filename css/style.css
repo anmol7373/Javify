@@ -1,0 +1,246 @@
+/*---------------------------------------------------------
+|                     GLOBAL STYLES                        |
+-----------------------------------------------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #4D2A22;
+    background-color: #F9F6F2;
+    overflow-x: hidden;
+    padding-top: 60px; /* Space for the fixed navbar */
+}
+
+.container, .index-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Global Paragraph Style */
+p {
+    color: #4D2A22;
+}
+
+/*---------------------------------------------------------
+|                     INDEX PAGE STYLES                    |
+-----------------------------------------------------------*/
+
+/* Navbar Container Styling */
+#index-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(139, 93, 60, 0.9);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    z-index: 1000;
+    transition: background-color 0.3s;
+}
+
+#index-header .logo img {
+    width: 80px;
+    margin-right: 20px;
+}
+
+/* Container for all nav items */
+#index-header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Main Navigation Links (aligned left) */
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.nav-links a {
+    color: #FFF3E0;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: #8B5D3C;
+    color: #FFF;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+/* Authentication Links (aligned right) */
+.auth-links {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+    margin-left: auto; /* Align auth links to the right */
+}
+
+.auth-links .auth-btn {
+    background-color: #A67C52;
+    color: #FFF3E0;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.auth-links .auth-btn:hover {
+    background-color: #8B5D3C;
+    color: #FFF;
+}
+
+/* Enhanced Welcome Section Styling */
+#home {
+    background: linear-gradient(to bottom, #7A4D33, #F9F6F2);
+    color: #FFF3E0;
+    padding: 120px 20px; /* Increase padding for impact */
+    text-align: center;
+    border-bottom: 2px solid #8B5D3C; /* Bottom border to distinguish from next section */
+}
+
+#home h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: #FFF3E0; /* White text for contrast on dark background */
+    margin-bottom: 20px;
+}
+
+#home p {
+    font-size: 1.5rem;
+    color: #FFD7B5; /* Light complementary color */
+}
+
+/* Alternate Section Background Colors */
+#introduction {
+    background-color: #FFF3E0;
+    padding: 60px 20px;
+    border-top: 2px solid #D3B392;
+    border-bottom: 2px solid #D3B392;
+}
+
+#features {
+    background-color: #F9EFE2;
+    padding: 60px 20px;
+    border-top: 2px solid #D3B392;
+    border-bottom: 2px solid #D3B392;
+}
+
+#video {
+    background-color: #FFF3E0;
+    padding: 60px 20px;
+    border-top: 2px solid #D3B392;
+    text-align: center;
+}
+
+/* Java Uses and Benefits Boxes */
+.java-uses, .java-benefits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.java-use, .java-benefit {
+    background-color: #FFF;
+    padding: 20px;
+    border: 1px solid #DDD;
+    border-radius: 10px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #4D2A22;
+}
+
+.java-use i, .java-benefit i {
+    font-size: 2em;
+    color: #8B5D3C;
+    margin-bottom: 10px;
+}
+
+.java-use p, .java-benefit p {
+    font-size: 1rem;
+    color: #4D2A22;
+    text-align: center;
+    padding-top: 10px;
+    display: block;
+}
+
+.java-use:hover, .java-benefit:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Divider Between Sections */
+.section-divider {
+    width: 80%;
+    height: 2px;
+    background-color: #D3B392;
+    margin: 40px auto;
+}
+
+/* Section Headers */
+.section h1, .section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #4D2A22;
+}
+
+/* Video Styling */
+.video-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.video-container iframe {
+    border: 2px solid #A67C52;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+}
+
+/* Get Started Button Styling */
+.get-started-btn {
+    background-color: #8B5D3C;
+    color: #FFF3E0;
+    padding: 25px 50px; /* Increased padding for larger button */
+    border-radius: 8px;
+    font-size: 22px; /* Increased font size */
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px; /* Reduced margin-top to bring it closer to the video */
+    transition: background-color 0.3s;
+}
+
+.get-started-btn:hover {
+    background-color: #A67C52;
+}

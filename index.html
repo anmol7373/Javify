@@ -1,0 +1,145 @@
+<?php
+session_start(); // Start the session to access login state
+
+// Mock login state for demonstration purposes
+// Uncomment the following lines if you have a real authentication check
+// $_SESSION['logged_in'] = true;
+// $_SESSION['username'] = 'John Doe'; // Replace with actual user data
+
+$isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
+$username = $isLoggedIn ? $_SESSION['username'] : '';
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javify - Learn Java Programming</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts for Welcome Section -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+</head>
+<body id="index-page">
+
+<!-- Navbar -->
+<header id="index-header">
+    <div class="index-container">
+        <div class="logo">
+            <img src="images/Logo-2.png" alt="Javify Logo">
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Courses</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <ul class="auth-links">
+                <?php if ($isLoggedIn): ?>
+                <li><a href="profile.php" class="btn auth-btn">Hello, <?php echo htmlspecialchars($username); ?></a></li>
+                <li><a href="logout.php" class="btn auth-btn">Logout</a></li>
+                <?php else: ?>
+                <li><a href="login_register.php" class="btn auth-btn">Login / Register</a></li>
+                <?php endif; ?>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Home Section -->
+<section id="home" class="section">
+    <div class="index-container text-center">
+        <h1>Welcome to Javify</h1>
+        <p>Your journey to mastering Java begins here.</p>
+    </div>
+</section>
+
+<!-- Java Introduction Section -->
+<section id="introduction" class="section">
+    <div class="index-container text-center">
+        <h2>Java Introduction</h2>
+        <h3>What is Java?</h3>
+        <p>Java is a popular programming language, created in 1995. It is owned by Oracle, and more than 3 billion devices run Java.</p>
+
+        <div class="java-uses">
+            <div class="java-use">
+                <i class="fas fa-mobile-alt"></i>
+                <p>Mobile applications (especially Android apps)</p>
+            </div>
+            <div class="java-use">
+                <i class="fas fa-desktop"></i>
+                <p>Desktop applications</p>
+            </div>
+            <div class="java-use">
+                <i class="fas fa-globe"></i>
+                <p>Web applications</p>
+            </div>
+            <div class="java-use">
+                <i class="fas fa-server"></i>
+                <p>Web servers and application servers</p>
+            </div>
+            <div class="java-use">
+                <i class="fas fa-gamepad"></i>
+                <p>Games</p>
+            </div>
+            <div class="java-use">
+                <i class="fas fa-database"></i>
+                <p>Database connections</p>
+            </div>
+        </div>
+
+        <!-- Divider Section Between "What is Java" and "Why Use Java" -->
+        <div class="section-divider"></div>
+
+        <h3>Why Use Java?</h3>
+        <div class="java-benefits">
+            <div class="java-benefit">
+                <i class="fas fa-laptop-code"></i>
+                <p>Java works on different platforms (Windows, Mac, Linux, Raspberry Pi, etc.)</p>
+            </div>
+            <div class="java-benefit">
+                <i class="fas fa-chart-line"></i>
+                <p>It is one of the most popular programming languages in the world</p>
+            </div>
+            <div class="java-benefit">
+                <i class="fas fa-smile"></i>
+                <p>It is easy to learn and simple to use</p>
+            </div>
+            <div class="java-benefit">
+                <i class="fas fa-users"></i>
+                <p>Java has huge community support (tens of millions of developers)</p>
+            </div>
+            <div class="java-benefit">
+                <i class="fas fa-shield-alt"></i>
+                <p>It is secure, fast, and powerful</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="section">
+    <div class="index-container text-center">
+        <h2>Interactive Features</h2>
+        <p>From beginner to advanced, dive into Java with interactive quizzes, coding challenges, and real-world projects.</p>
+    </div>
+</section>
+
+<!-- Video Section -->
+<section id="video" class="section">
+    <div class="index-container text-center">
+        <h2>Get a Glimpse of Java</h2>
+        <div class="video-container">
+            <iframe width="560" height="415" src="https://www.youtube.com/embed/t54pgbVy6t0" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+</section>
+
+<!-- Get Started Button at the Bottom -->
+<div class="index-container text-center">
+    <a href="courses.php" class="get-started-btn">Get Started</a>
+</div>
+
+</body>
+</html>
