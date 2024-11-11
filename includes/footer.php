@@ -1,16 +1,17 @@
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/Javify/config.php'; ?>
+
 <footer id="main-footer">
     <div class="footer-container">
         <div class="footer-logo">
-            <img src="images/Logo-2.png" alt="Javify Logo">
+            <img src="<?php echo BASE_URL; ?>images/Logo-2.png" alt="Javify Logo">
             <p>Javify - Your journey to mastering Java</p>
         </div>
         <div class="footer-links">
             <h4>Quick Links</h4>
             <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="courses.php">Courses</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="<?php echo BASE_URL; ?>index.php">Home</a></li>
+                <li><a href="<?php echo BASE_URL; ?>pages/courses.php">Courses</a></li>
+                <li><a href="<?php echo BASE_URL; ?>pages/contact.php">Contact</a></li>
             </ul>
         </div>
         <div class="footer-contact">

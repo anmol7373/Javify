@@ -1,9 +1,9 @@
 <?php
-session_start();
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Javify/config.php';
+
 $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
 if (!$isLoggedIn) {
-
-    header("Location: index.php");
+    header("Location: " . BASE_URL . "index.php");
     exit;
 }
 $username = $isLoggedIn ? $_SESSION['username'] : '';
@@ -14,13 +14,13 @@ $username = $isLoggedIn ? $_SESSION['username'] : '';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javify - Advanced Java</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Javify - Advanced Java Theory</title>
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/style.css">
 </head>
 <body id="advanced-page">
 
 <!-- Include Header -->
-<?php include 'header.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/Javify/includes/header.php'; ?>
 
 <!-- Content Section -->
 <section id="advanced-content">
@@ -202,13 +202,13 @@ public class NativeExample {
 
         <!-- "Go to Quiz" Button -->
         <div class="text-center">
-            <a href="advanced_quiz.php" class="btn quiz-btn">Go to Quiz</a>
+            <a href="<?php echo BASE_URL; ?>pages/advanced_quiz.php" class="btn quiz-btn">Go to Quiz</a>
         </div>
     </div>
 </section>
 
 <!-- Include Footer -->
-<?php include 'footer.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/Javify/includes/footer.php'; ?>
 
 </body>
 </html>

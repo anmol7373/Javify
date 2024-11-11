@@ -1,5 +1,7 @@
 <?php
-include 'dbConnection.php';
+// Include config and dbConnection from the includes folder
+include_once '../config.php';
+include_once '../includes/dbConnection.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = trim($_POST['username']);
@@ -24,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bind_param("sss", $username, $email, $passwordHash);
 
         if ($stmt->execute()) {
-            $success_message = "Registration successful. <a href='login.php'>Login here</a>";
+            $success_message = "Registration successful. <a href='" . BASE_URL . "pages/login.php'>Login here</a>";
         } else {
             $error_message = "Error: " . $stmt->error;
         }
@@ -41,11 +43,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - Javify</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/style.css">
 </head>
 <body id="register-page">
 
-<?php include 'header.php'; ?>
+<!-- Include Header -->
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/Javify/includes/header.php'; ?>
 
 <div class="register-wrapper">
     <div class="register-container">
@@ -58,17 +61,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <p class="success-message"><?php echo $success_message; ?></p>
         <?php endif; ?>
 
-        <form action="register.php" method="POST">
+        <form action="<?php echo BASE_URL; ?>pages/register.php" method="POST">
             <input type="text" name="username" placeholder="Username" required>
             <input type="email" name="email" placeholder="Email" required>
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit" class="auth-btn">Register</button>
         </form>
-        <p class="login-link">Already have an account? <a href="login.php">Login here</a></p>
+        <p class="login-link">Already have an account? <a href="<?php echo BASE_URL; ?>pages/login.php">Login here</a></p>
     </div>
 </div>
 
-<?php include 'footer.php'; ?>
+<!-- Include Footer -->
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/Javify/includes/footer.php'; ?>
 
 </body>
 </html>

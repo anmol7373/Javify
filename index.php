@@ -1,6 +1,8 @@
 <?php
-    $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
-    $username = $isLoggedIn ? $_SESSION['username'] : '';
+include 'config.php'; // Include the base URL configuration file
+
+$isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
+$username = $isLoggedIn ? $_SESSION['username'] : '';
 ?>
 
 <!DOCTYPE html>
@@ -9,14 +11,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javify - Learn Java Programming</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts for Welcome Section -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
 </head>
 <body id="index-page">
 
-<?php include 'header.php'; ?>
+<!-- Include Header -->
+<?php include __DIR__ . '/includes/header.php'; ?>
 
 <!-- Home Section -->
 <section id="home" class="section">
@@ -104,11 +106,12 @@
         <div class="video-container">
             <iframe width="560" height="415" src="https://www.youtube.com/embed/t54pgbVy6t0" frameborder="0" allowfullscreen></iframe>
         </div>
-        <a href="courses.php" class="get-started-btn">Get Started</a>
+        <a href="<?php echo BASE_URL; ?>pages/courses.php" class="get-started-btn">Get Started</a>
     </div>
 </section>
 
-<?php include 'footer.php'; ?>
+<!-- Include Footer -->
+<?php include __DIR__ . '/includes/footer.php'; ?>
 
 </body>
 </html>

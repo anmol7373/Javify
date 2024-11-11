@@ -1,5 +1,6 @@
 <?php
-include 'dbConnection.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Javify/config.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Javify/includes/dbConnection.php'; // Corrected path
 
 // Handle the form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -26,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['userId'] = $userId;
             $_SESSION['username'] = $username;
             $_SESSION['logged_in'] = true;
-            header("Location: index.php"); // Redirect to homepage
+            header("Location: " . BASE_URL . "index.php"); // Redirect to homepage
             exit;
         } else {
             $error_message = "Invalid username or password.";
@@ -42,11 +43,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Javify</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/style.css">
 </head>
 <body id="login-page">
 
-<?php include 'header.php'; ?>
+<!-- Include Header -->
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/Javify/includes/header.php'; ?>
 
 <div class="login-wrapper">
     <div class="login-container">
@@ -57,18 +59,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <p class="login-error-message"><?php echo $error_message; ?></p>
         <?php endif; ?>
 
-        <form action="login.php" method="POST" class="login-form">
+        <form action="<?php echo BASE_URL; ?>pages/login.php" method="POST" class="login-form">
             <input type="text" name="username" class="login-input" placeholder="Username" required>
             <input type="password" name="password" class="login-input" placeholder="Password" required>
             <button type="submit" class="login-btn">Login</button>
         </form>
 
         <!-- Link to Registration Page -->
-        <p class="register-link">Don't have an account? <a href="register.php">Create an account</a></p>
+        <p class="register-link">Don't have an account? <a href="<?php echo BASE_URL; ?>pages/register.php">Create an account</a></p>
     </div>
 </div>
 
-<?php include 'footer.php'; ?>
+<!-- Include Footer -->
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/Javify/includes/footer.php'; ?>
 
 </body>
 </html>

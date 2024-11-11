@@ -1,9 +1,9 @@
 <?php
-session_start();
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Javify/config.php';
+
 $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
 if (!$isLoggedIn) {
-
-    header("Location: index.php");
+    header("Location: " . BASE_URL . "index.php");
     exit;
 }
 $username = $isLoggedIn ? $_SESSION['username'] : '';
@@ -15,12 +15,12 @@ $username = $isLoggedIn ? $_SESSION['username'] : '';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javify - Intermediate Java Quiz</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/style.css">
 </head>
 <body id="intermediate-quiz-page">
 
 <!-- Include Header -->
-<?php include 'header.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/Javify/includes/header.php'; ?>
 
 <!-- Quiz Content Section -->
 <section id="intermediate-quiz-content">
@@ -28,7 +28,7 @@ $username = $isLoggedIn ? $_SESSION['username'] : '';
         <h1>Intermediate Java Quiz</h1>
         
         <h2>Multiple Choice Questions (MCQ)</h2>
-        <form action="submit_quiz.php" method="post">
+        <form action="<?php echo BASE_URL; ?>pages/submit_quiz.php" method="post">
             <p>1. Which of the following is true about interfaces in Java?</p>
             <input type="radio" name="q1" value="A"> A) Interfaces can contain constructors<br>
             <input type="radio" name="q1" value="B"> B) A class can implement multiple interfaces<br>
@@ -125,7 +125,7 @@ $username = $isLoggedIn ? $_SESSION['username'] : '';
 </section>
 
 <!-- Include Footer -->
-<?php include 'footer.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/Javify/includes/footer.php'; ?>
 
 </body>
 </html>
