@@ -1,5 +1,5 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/Javify/config.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/Javify/includes/header.php';
 
 $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
 if (!$isLoggedIn) {
@@ -18,9 +18,6 @@ $username = $isLoggedIn ? $_SESSION['username'] : '';
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/style.css">
 </head>
 <body id="advanced-page">
-
-<!-- Include Header -->
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/Javify/includes/header.php'; ?>
 
 <!-- Content Section -->
 <section id="advanced-content">
