@@ -1,4 +1,5 @@
 <?php
+include $_SERVER['DOCUMENT_ROOT'] . '/Javify/includes/header.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Javify/config.php';
 
 $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
@@ -18,9 +19,6 @@ $username = $isLoggedIn ? $_SESSION['username'] : '';
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/style.css">
 </head>
 <body id="beginner-quiz-page">
-
-<!-- Include Header -->
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/Javify/includes/header.php'; ?>
 
 <!-- Quiz Content Section -->
 <section id="beginner-quiz-content">

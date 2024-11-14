@@ -796,105 +796,441 @@ p {
 }
 
 /*---------------------------------------------------------
-|                      BEGINNER PAGE                       |
+|                     BEGINNER THEORY PAGES                       |
 -----------------------------------------------------------*/
 
-/* Container for the main content */
-#index-container {
-    width: 90%;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: left; /* Align text to the left for readability */
+/* Beginner Theory Page Styles */
+
+body#beginner-page {
+    background-color: #f9f9f9;
+    font-family: 'Arial', sans-serif;
+    color: #5d4037;
+    margin: 0;
+    padding: 0;
 }
 
-/* Main Title */
-#index-container h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+/* Content Container */
+#beginner-content .content-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+#beginner-content h1 {
     text-align: center;
-    color: #8B5D3C;
+    font-size: 2.5rem;
+    color: #6d4c41;
+    margin-bottom: 1.5rem;
 }
 
-/* Section Titles */
-#index-container h2 {
-    font-size: 1.8rem;
-    color: #8B5D3C;
-    margin-top: 30px;
-    margin-bottom: 15px;
-    text-align: left;
-    border-bottom: 2px solid #A67C52;
-    padding-bottom: 5px;
-}
-
-/* Paragraphs */
-#index-container p {
+#beginner-content p {
     font-size: 1.1rem;
-    line-height: 1.6;
-    color: #4D2A22;
-    margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #795548;
 }
 
-/* Unordered lists */
-#index-container ul {
-    list-style-type: disc;
-    margin-left: 20px;
-    padding-left: 20px;
+/* Card Styles */
+.card-container {
+    margin-top: 1.5rem;
 }
 
-#index-container ul li {
-    font-size: 1rem;
-    margin: 8px 0;
-    line-height: 1.5;
+.card {
+    margin-bottom: 1rem;
+    background: #fff3e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
-/* Bold Text in Lists */
-#index-container ul li strong {
-    color: #8B5D3C;
+.card-header {
+    padding: 1rem;
+    background: #fbe9e7;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
     font-weight: bold;
+    color: #6d4c41;
 }
 
-/* Button Styling */
-.quiz-btn {
-    display: inline-block;
-    background-color: #8B5D3C;
-    color: #FFF3E0;
-    padding: 12px 25px;
-    border-radius: 5px;
+.card-header:hover {
+    background: #ffccbc;
+}
+
+.card-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 1rem;
+}
+
+.card-body p, .card-body ul {
+    margin: 1rem 0;
     font-size: 1rem;
+    line-height: 1.8;
+}
+
+.card-body ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+}
+
+/* Toggle Icon */
+.toggle-icon {
+    font-size: 1.5rem;
+    color: #6d4c41;
+    transition: transform 0.3s;
+}
+
+/* Button Styles */
+.action-section {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.btn.quiz-btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #795548;
     text-decoration: none;
-    margin-top: 20px;
+    border-radius: 5px;
     transition: background-color 0.3s;
 }
 
-.quiz-btn:hover {
-    background-color: #A67C52;
-    color: #FFF;
+.btn.quiz-btn:hover {
+    background-color: #5d4037;
 }
 
-/* Centering for the Button */
-.text-center {
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-/* Adjustments for Small Screens */
+/* Responsive Design */
 @media (max-width: 768px) {
-    #index-container {
-        padding: 10px;
+    #beginner-content .content-container {
+        padding: 1.5rem;
     }
 
-    #index-container h1 {
+    .card-header {
+        font-size: 1rem;
+    }
+
+    .card-body p, .card-body ul {
+        font-size: 0.95rem;
+    }
+}
+
+/*---------------------------------------------------------
+|                 INTERMEDIATE THEORY PAGES                |
+-----------------------------------------------------------*/
+
+/* Intermediate Theory Page Styles */
+
+body#intermediate-page {
+    background-color: #f9f9f9;
+    font-family: 'Arial', sans-serif;
+    color: #5d4037;
+    margin: 0;
+    padding: 0;
+}
+
+/* Content Container */
+#intermediate-content .content-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+#intermediate-content h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #6d4c41;
+    margin-bottom: 1.5rem;
+}
+
+#intermediate-content p {
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #795548;
+}
+
+/* Card Styles */
+.card-container {
+    margin-top: 1.5rem;
+}
+
+.card {
+    margin-bottom: 1rem;
+    background: #fff3e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 1rem;
+    background: #fbe9e7;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #6d4c41;
+}
+
+.card-header:hover {
+    background: #ffccbc;
+}
+
+.card-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 1rem;
+}
+
+.card-body p, .card-body ul {
+    margin: 1rem 0;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.card-body ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+}
+
+/* Code Block Styles */
+pre, code {
+    display: block;
+    background: #2e2e2e;
+    color: #ffffff;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    white-space: pre-wrap;
+}
+
+pre code {
+    display: inline; /* Ensures proper wrapping for multi-line code */
+}
+
+/* Toggle Icon */
+.toggle-icon {
+    font-size: 1.5rem;
+    color: #6d4c41;
+    transition: transform 0.3s;
+}
+
+/* Button Styles */
+.action-section {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.btn.quiz-btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #795548;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn.quiz-btn:hover {
+    background-color: #5d4037;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #intermediate-content .content-container {
+        padding: 1.5rem;
+    }
+
+    .card-header {
+        font-size: 1rem;
+    }
+
+    .card-body p, .card-body ul {
+        font-size: 0.95rem;
+    }
+}
+
+/*---------------------------------------------------------
+|                     ADVANCED THEORY PAGE                 |
+-----------------------------------------------------------*/
+
+/* Advanced Theory Page Styles */
+
+body#advanced-page {
+    background-color: #f9f9f9;
+    font-family: 'Arial', sans-serif;
+    color: #5d4037;
+    margin: 0;
+    padding: 0;
+}
+
+/* Content Container */
+#advanced-content .content-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+#advanced-content h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #6d4c41;
+    margin-bottom: 1.5rem;
+}
+
+#advanced-content h2 {
+    font-size: 1.8rem;
+    color: #6d4c41;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+#advanced-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: #795548;
+}
+
+#advanced-content ul {
+    margin-left: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+#advanced-content ul li {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+/* Code Block Styles */
+pre, code {
+    display: block;
+    background: #2e2e2e;
+    color: #ffffff;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+pre code {
+    display: inline; /* Ensures proper wrapping for multi-line code */
+}
+
+#advanced-content h3 {
+    font-size: 1.5rem;
+    color: #5d4037;
+    margin-top: 1.5rem;
+}
+
+/* Button Styles */
+.action-section {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.btn.quiz-btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #795548;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn.quiz-btn:hover {
+    background-color: #5d4037;
+}
+
+/* Card Styles */
+.card-container {
+    margin-top: 1.5rem;
+}
+
+.card {
+    margin-bottom: 1rem;
+    background: #fff3e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 1rem;
+    background: #fbe9e7;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #6d4c41;
+}
+
+.card-header:hover {
+    background: #ffccbc;
+}
+
+.card-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 1rem;
+}
+
+.card-body p, .card-body ul {
+    margin: 1rem 0;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #advanced-content .content-container {
+        padding: 1.5rem;
+    }
+
+    #advanced-content h1 {
         font-size: 2rem;
     }
 
-    #index-container h2 {
+    #advanced-content h2 {
         font-size: 1.5rem;
     }
 
-    #index-container p, #index-container ul li {
-        font-size: 1rem;
+    pre, code {
+        font-size: 0.9rem;
     }
 }
 
