@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Concept Bot</title>
+    <link rel="stylesheet" href="../css/bot-style.css">
+    <style>
+        /* Bot styling */
+        .bot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            font-family: Arial, sans-serif;
+        }
+        .bot-header {
+            background: #4CAF50;
+            color: white;
+            padding: 10px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            text-align: center;
+        }
+        .chat-area {
+            padding: 10px;
+            height: 200px;
+            overflow-y: auto;
+            background: #ffffff;
+            flex-grow: 1;
+        }
+        .bot-message, .user-message {
+            margin: 5px 0;
+            padding: 8px;
+            border-radius: 5px;
+        }
+        .bot-message {
+            background: #eeeeee;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="bot-container">
+        <div class="bot-header">Concept Bot</div>
+        <div class="chat-area" id="chat-area"></div>
+    </div>
+
+    <script>
+        // Get the level parameter from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const level = urlParams.get('level') || 'beginner';
+
+        // Definitions for each level
+        const definitions = {
+            beginner: {
+                "java": "A high-level, object-oriented programming language.",
+                "james gosling": "The creator of the Java programming language.",
+                "oracle corporation": "The company that acquired Java in 2009.",
+                "java standard edition (jse)": "Edition of Java used for desktop applications.",
+                "java enterprise edition (jee)": "Java edition used for large-scale server applications.",
+                "java micro edition (jme)": "Java edition designed for small devices like mobile phones.",
+                "object-oriented": "A programming style based on objects that contain data and behavior.",
+                "garbage collection": "Automatic memory management in Java to free up unused memory.",
+                "java virtual machine (jvm)": "The virtual machine that runs Java bytecode on any device.",
+                "inheritance": "A feature that allows a class to inherit methods and fields from another class.",
+                "polymorphism": "A feature that allows objects to be used as if they are instances of their parent class."
+            },
+            intermediate: {
+                "interface": "A reference type in Java that defines a contract for classes to implement.",
+                "abstract class": "A class that cannot be instantiated and may contain abstract methods.",
+                "generics": "A feature that enables classes and methods to operate on specified types.",
+                "lambda expression": "An anonymous function that provides a concise way to represent instances of functional interfaces.",
+                "streams api": "Allows data processing in a declarative way using filter, map, reduce operations.",
+                "executor framework": "A framework for managing threads and asynchronous task execution.",
+                "reflection": "A feature that allows inspection and modification of classes, methods, and fields at runtime."
+            },
+            advanced: {
+                "garbage collection algorithms": "Various methods to manage memory in Java, like G1, CMS, and Parallel GC.",
+                "reentrantlock": "A lock that provides advanced synchronization mechanisms beyond the synchronized keyword.",
+                "threadlocal": "A way to create variables that are isolated to a specific thread.",
+                "fork/join framework": "A framework for parallel processing using a divide-and-conquer approach.",
+                "singleton pattern": "A design pattern that restricts a class to have only one instance.",
+                "factory pattern": "A design pattern for creating objects without specifying the exact class type.",
+                "observer pattern": "A design pattern where changes in one object are automatically notified to dependent objects.",
+                "flatmap": "A stream operation that flattens nested structures.",
+                "reduce": "A terminal stream operation to accumulate elements into a single result.",
+                "module system": "Introduced in Java 9, it allows applications to be divided into modules for better management.",
+                "jni": "Java Native Interface, a framework to interact with native applications written in C/C++."
+            }
+        };
+
+        // Display messages in the chat area
+        function displayMessage(sender, text) {
+            const chatArea = document.getElementById("chat-area");
+            const messageDiv = document.createElement("div");
+            messageDiv.className = sender === "bot" ? "bot-message" : "user-message";
+            messageDiv.textContent = text;
+            chatArea.appendChild(messageDiv);
+            chatArea.scrollTop = chatArea.scrollHeight;
+        }
+
+        // Show definition based on term and level
+        function showDefinition(term) {
+            const definition = definitions[level][term.toLowerCase()] || "Sorry, I don't have a definition for that.";
+            displayMessage("bot", definition);
+        }
+
+        // Make the `showDefinition` function globally accessible so it can be called from the theory pages
+        window.showDefinition = showDefinition;
+    </script>
+</body>
+</html>
