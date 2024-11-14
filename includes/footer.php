@@ -11,6 +11,7 @@
             <ul>
                 <li><a href="<?php echo BASE_URL; ?>index.php">Home</a></li>
                 <li><a href="<?php echo BASE_URL; ?>pages/courses.php">Courses</a></li>
+                <li><a href="<?php echo BASE_URL; ?>pages/quizzes.php">Quizzes</a></li>
                 <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
                     <li><a href="<?php echo BASE_URL; ?>pages/scoreboard.php">Scoreboard</a></li>
                 <?php endif; ?>
