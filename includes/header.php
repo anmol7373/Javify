@@ -1,8 +1,7 @@
 <?php
-    session_start();
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/Javify/config.php'; // Adjust path as needed for your project structure
+session_start();
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Javify/config.php';
 ?>
-
 <header id="index-header">
     <div class="container">
         <div class="logo">
