@@ -351,6 +351,117 @@ p {
     color: #A67C52;
 }
 
+/*-------------------------------------------
+|                PROFILE PAGE               |
+--------------------------------------------*/
+
+/* Profile Page Styling */
+.profile-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+.profile-card {
+    background-color: #ffffff;
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.profile-card h1 {
+    color: #8B5D3C;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.profile-info,
+.profile-password {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.profile-info h2,
+.profile-password h2 {
+    font-size: 1.5rem;
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+.profile-info p {
+    font-size: 1rem;
+    color: #555555;
+    margin: 5px 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    color: #333333;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #8B5D3C;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #8B5D3C;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #5C3925;
+}
+
+/* Alert Messages */
+.alert {
+    padding: 10px;
+    margin: 20px 0;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.alert.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
 /*---------------------------------------------------------
 |                     REGISTER PAGE STYLES                |
 -----------------------------------------------------------*/
