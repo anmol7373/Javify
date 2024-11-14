@@ -547,99 +547,96 @@ p {
 |                   COURSES PAGE STYLES                   |
 -----------------------------------------------------------*/
 
-#courses-page #course-selection {
-    background-color: #F9EFE2; /* Light background */
-    padding: 80px 20px;
-    text-align: center;
-}
-
-#course-selection {
-    padding-top: 100px; /* Adjust as necessary */
-    background-color: #F9EFE2;
-    text-align: center;
-}
-
-#course-selection h1 {
-    font-size: 3rem;
-    color: #4D2A22;
-    font-family: 'Poppins', sans-serif;
-    margin-bottom: 20px;
-}
-
-#course-selection p {
-    font-size: 1.25rem;
-    color: #8B5D3C;
-    margin-bottom: 40px;
-}
-
-/* Course Levels Container */
-.course-levels {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    flex-wrap: wrap; /* Ensures responsiveness */
-}
-
-/* Course Card Styling */
-.course-card {
-    background-color: #FFF3E0;
-    border: 1px solid #D3B392;
-    border-radius: 10px;
-    width: 300px;
-    padding: 30px 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+/* General Wrapper */
+.courses-wrapper {
+    padding: 30px 15px;
+    background-color: #fdf9f4;
+    min-height: calc(100vh - 200px); /* Dynamically adjust height to fit screen while accounting for header and footer */
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
+/* Container for Content */
+.courses-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #fff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+.courses-container h1 {
+    font-size: 2rem;
+    color: #8b5d3c;
+    margin-bottom: 20px;
+}
+
+/* Welcome Message */
+.welcome-message {
+    font-size: 1.2rem;
+    color: #5f4232;
+    margin-bottom: 30px;
+}
+
+/* Course Cards */
+.course-list {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.course-card {
+    flex: 1 1 250px;
+    max-width: 300px;
+    background-color: #f7e5d3;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
 .course-card h2 {
-    font-size: 1.75rem;
-    color: #4D2A22;
-    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: #8b5d3c;
+    margin-bottom: 10px;
 }
 
 .course-card p {
     font-size: 1rem;
-    color: #8B5D3C;
-    margin-bottom: 25px;
+    color: #5f4232;
+    margin-bottom: 20px;
 }
 
-/* Button Styling for Course Cards */
-.course-btn {
-    background-color: #8B5D3C;
-    color: #FFF3E0;
-    padding: 10px 20px;
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
     font-size: 1rem;
-    border-radius: 5px;
+    color: #fff;
+    background-color: #8b5d3c;
     text-decoration: none;
-    transition: background-color 0.3s;
+    border-radius: 5px;
+    transition: background-color 0.2s;
 }
 
-.course-btn:hover {
-    background-color: #A67C52;
-    color: #FFF;
-}
-
-/* Hover Effect for Course Cards */
-.course-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+.btn:hover {
+    background-color: #703f28;
 }
 
 /*---------------------------------------------------------
 |                      BEGINNER PAGE                       |
 -----------------------------------------------------------*/
-
-/* Basic styling for body */
-#beginner-page {
-    font-family: Arial, sans-serif;
-    color: #4D2A22; /* Dark brown text color */
-    background-color: #F9F6F2; /* Light background for easy reading */
-    padding-top: 80px; /* To account for fixed header */
-    padding-bottom: 40px; /* Space at bottom before footer */
-}
 
 /* Container for the main content */
 #index-container {
