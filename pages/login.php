@@ -1,5 +1,5 @@
 <?php
-session_start();
+include $_SERVER['DOCUMENT_ROOT'] . '/Javify/includes/header.php';
 include_once '../config.php';
 include_once '../includes/dbConnection.php';
 if (!$conn) {
@@ -51,9 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/style.css">
 </head>
 <body id="login-page">
-
-<!-- Include Header -->
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/Javify/includes/header.php'; ?>
 
 <div class="login-wrapper">
     <div class="login-container">
