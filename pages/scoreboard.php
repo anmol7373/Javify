@@ -1,5 +1,5 @@
 <?php
-session_start();
+include $_SERVER['DOCUMENT_ROOT'] . '/Javify/includes/header.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Javify/config.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Javify/includes/dbConnection.php';
 
@@ -35,8 +35,6 @@ $conn->close();
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/scoreboard.css">
 </head>
 <body id="scoreboard-page">
-
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/Javify/includes/header.php'; ?>
 
 <div class="scoreboard-wrapper">
     <div class="scoreboard-container">
