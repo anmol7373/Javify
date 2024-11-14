@@ -1,6 +1,11 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/Javify/config.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/Javify/includes/dbConnection.php'; // Corrected path
+session_start();
+include_once '../config.php';
+include_once '../includes/dbConnection.php';
+if (!$conn) {
+    die("Database connection failed: " . mysqli_connect_error());
+}
+
 
 // Handle the form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -12,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error_message = "Please fill in both username and password.";
     } else {
         // Prepare and execute the SQL statement
-        $stmt = $conn->prepare("SELECT userId, passwordHash FROM tblUsers WHERE userName = ?");
+        $stmt = $conn->prepare("SELECT userId, passwordHash FROM tblusers WHERE userName = ?");
         if (!$stmt) {
             die("Database error: " . $conn->error);
         }
