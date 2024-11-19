@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error_message = "Please fill in both username and password.";
     } else {
         // Prepare and execute the SQL statement
-        $stmt = $conn->prepare("SELECT userId, passwordHash FROM tblusers WHERE userName = ?");
+        $stmt = $conn->prepare("SELECT idUser, tdPasswordHash FROM tblusers WHERE tdUserName = ?");
         if (!$stmt) {
             die("Database error: " . $conn->error);
         }
