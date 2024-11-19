@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $passwordHash = password_hash($password, PASSWORD_BCRYPT);
 
         // Insert into the database
-        $stmt = $conn->prepare("INSERT INTO tblUsers (userName, email, passwordHash) VALUES (?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO tblUsers (tdUserName, tdEmail, tdPasswordHash) VALUES (?, ?, ?)");
         if (!$stmt) {
             die("Database error: " . $conn->error);
         }
