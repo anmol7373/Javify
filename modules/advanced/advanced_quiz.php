@@ -14,10 +14,11 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$courseId = 3; // Advanced Quiz
+// Fetch quiz questions and answers
+$courseId = 3; // For advanced quiz
 $sql = "SELECT q.idQuestion, q.tdQuestionText, q.tdPoints, a.idAnswer, a.tdAnswerText
         FROM tblquestions q
-        JOIN answers a ON q.idQuestion = a.idQuestion
+        LEFT JOIN answers a ON q.idQuestion = a.idQuestion
         WHERE q.idCourse = ?
         ORDER BY q.idQuestion, a.idAnswer";
 $stmt = $conn->prepare($sql);
@@ -50,42 +51,45 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Java Quiz</title>
+    <title>Advanced Quiz</title>
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/style.css">
-    <script defer src="<?php echo BASE_URL; ?>js/advanced_quiz.js"></script>
+    <script defer src="<?php echo BASE_URL; ?>js/quiz.js"></script>
 </head>
-<body id="advanced-quiz-page">
+<body id="intermediate-quiz-page">
 
 <div class="quiz-wrapper">
     <!-- Main Quiz Box -->
     <div class="question-box">
-        <h1>Advanced Java Quiz</h1>
-        <div id="question-container">
-            <?php
-            $questionNumber = 1;
-            foreach ($questions as $questionId => $question):
-            ?>
-            <div class="question-block" id="question-<?php echo $questionNumber; ?>" data-question-id="<?php echo $questionId; ?>" style="display: none;">
-                <p class="question"><?php echo $question['text']; ?> (<?php echo $question['points']; ?> points)</p>
-                <div class="answer-options">
-                    <?php foreach ($question['answers'] as $answer): ?>
-                    <label>
-                        <input type="radio" name="q<?php echo $questionId; ?>" value="<?php echo $answer['id']; ?>">
-                        <?php echo $answer['text']; ?>
-                    </label>
-                    <?php endforeach; ?>
+        <h1>Advanced Quiz</h1>
+        <form id="quiz-form" method="POST" action="<?php echo BASE_URL; ?>pages/submitQuiz.php">
+            <input type="hidden" name="courseId" value="2">
+            <div id="question-container">
+                <?php
+                $questionNumber = 1;
+                foreach ($questions as $questionId => $question):
+                ?>
+                <div class="question-block" id="question-<?php echo $questionNumber; ?>" data-question-id="<?php echo $questionId; ?>" style="display: none;">
+                    <p class="question"><?php echo $question['text']; ?> (<?php echo $question['points']; ?> points)</p>
+                    <div class="answer-options">
+                        <?php foreach ($question['answers'] as $answer): ?>
+                        <label>
+                            <input type="radio" name="q<?php echo $questionId; ?>" value="<?php echo $answer['id']; ?>">
+                            <?php echo $answer['text']; ?>
+                        </label>
+                        <?php endforeach; ?>
+                    </div>
+                    <div class="nav-buttons">
+                        <button type="button" class="btn prev-btn" onclick="navigateQuestion(<?php echo $questionNumber - 1; ?>)" style="display: none;">Previous</button>
+                        <?php if ($questionNumber === count($questions)): ?>
+                            <button type="button" class="btn submit-btn" onclick="submitQuiz()">Submit Quiz</button>
+                        <?php else: ?>
+                            <button type="button" class="btn next-btn" onclick="navigateQuestion(<?php echo $questionNumber + 1; ?>)">Next</button>
+                        <?php endif; ?>
+                    </div>
                 </div>
-                <div class="nav-buttons">
-                    <button class="btn prev-btn" onclick="navigateQuestion(<?php echo $questionNumber - 1; ?>)" style="display: none;">Previous</button>
-                    <?php if ($questionNumber === count($questions)): ?>
-                        <button class="btn submit-btn" onclick="submitQuiz()">Submit Quiz</button>
-                    <?php else: ?>
-                        <button class="btn next-btn" onclick="navigateQuestion(<?php echo $questionNumber + 1; ?>)">Next</button>
-                    <?php endif; ?>
-                </div>
+                <?php $questionNumber++; endforeach; ?>
             </div>
-            <?php $questionNumber++; endforeach; ?>
-        </div>
+        </form>
     </div>
 
     <!-- Sidebar with Question Numbers -->

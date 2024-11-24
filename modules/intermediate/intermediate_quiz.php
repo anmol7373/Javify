@@ -14,11 +14,11 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch quiz questions and answers for intermediate course
-$courseId = 2;
+// Fetch quiz questions and answers
+$courseId = 2; // For intermediate quiz
 $sql = "SELECT q.idQuestion, q.tdQuestionText, q.tdPoints, a.idAnswer, a.tdAnswerText
         FROM tblquestions q
-        JOIN answers a ON q.idQuestion = a.idQuestion
+        LEFT JOIN answers a ON q.idQuestion = a.idQuestion
         WHERE q.idCourse = ?
         ORDER BY q.idQuestion, a.idAnswer";
 $stmt = $conn->prepare($sql);
@@ -53,15 +53,15 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Intermediate Quiz</title>
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/style.css">
-    <script defer src="<?php echo BASE_URL; ?>js/intermediate_quiz.js"></script>
+    <script defer src="<?php echo BASE_URL; ?>js/quiz.js"></script>
 </head>
 <body id="intermediate-quiz-page">
 
 <div class="quiz-wrapper">
     <!-- Main Quiz Box -->
     <div class="question-box">
-        <h1>Intermediate Java Quiz</h1>
-        <form id="quiz-form" action="<?php echo BASE_URL; ?>pages/submitQuiz.php" method="post">
+        <h1>Intermediate Quiz</h1>
+        <form id="quiz-form" method="POST" action="<?php echo BASE_URL; ?>pages/submitQuiz.php">
             <input type="hidden" name="courseId" value="2">
             <div id="question-container">
                 <?php
@@ -79,11 +79,11 @@ $conn->close();
                         <?php endforeach; ?>
                     </div>
                     <div class="nav-buttons">
-                        <button class="btn prev-btn" onclick="navigateQuestion(<?php echo $questionNumber - 1; ?>)" style="display: none;">Previous</button>
+                        <button type="button" class="btn prev-btn" onclick="navigateQuestion(<?php echo $questionNumber - 1; ?>)" style="display: none;">Previous</button>
                         <?php if ($questionNumber === count($questions)): ?>
-                            <button class="btn submit-btn" onclick="submitQuiz()">Submit Quiz</button>
+                            <button type="button" class="btn submit-btn" onclick="submitQuiz()">Submit Quiz</button>
                         <?php else: ?>
-                            <button class="btn next-btn" onclick="navigateQuestion(<?php echo $questionNumber + 1; ?>)">Next</button>
+                            <button type="button" class="btn next-btn" onclick="navigateQuestion(<?php echo $questionNumber + 1; ?>)">Next</button>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -104,6 +104,17 @@ $conn->close();
                 <?php echo $questionNumber; ?>
             </div>
             <?php $questionNumber++; endforeach; ?>
+        </div>
+    </div>
+</div>
+
+<!-- Popup for Confirm Submission -->
+<div id="popup-overlay" class="popup-overlay" style="display: none;">
+    <div class="popup">
+        <p id="popup-message"></p>
+        <div class="popup-buttons">
+            <button class="popup-btn confirm-btn" onclick="confirmSubmit()">Yes</button>
+            <button class="popup-btn cancel-btn" onclick="closePopup()">No</button>
         </div>
     </div>
 </div>
