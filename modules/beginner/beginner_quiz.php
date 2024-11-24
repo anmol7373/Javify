@@ -53,7 +53,7 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beginner Quiz</title>
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/style.css">
-    <script defer src="<?php echo BASE_URL; ?>js/beginner_quiz.js"></script>
+    <script defer src="<?php echo BASE_URL; ?>js/quiz.js"></script>
 </head>
 <body id="beginner-quiz-page">
 
