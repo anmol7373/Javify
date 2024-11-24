@@ -10,13 +10,11 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 
 $username = $_SESSION['username'];
 
-
-
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-
+// Fetch quiz questions and answers for intermediate course
 $courseId = 2;
 $sql = "SELECT q.idQuestion, q.tdQuestionText, q.tdPoints, a.idAnswer, a.tdAnswerText
         FROM tblquestions q
@@ -27,7 +25,6 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $courseId);
 $stmt->execute();
 $result = $stmt->get_result();
-
 
 $questions = [];
 while ($row = $result->fetch_assoc()) {
@@ -54,29 +51,64 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intermediate Java Quiz</title>
+    <title>Intermediate Quiz</title>
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/style.css">
+    <script defer src="<?php echo BASE_URL; ?>js/intermediate_quiz.js"></script>
 </head>
 <body id="intermediate-quiz-page">
-<section id="intermediate-quiz-content">
-    <div class="index-container text-center">
+
+<div class="quiz-wrapper">
+    <!-- Main Quiz Box -->
+    <div class="question-box">
         <h1>Intermediate Java Quiz</h1>
         <form id="quiz-form" action="<?php echo BASE_URL; ?>pages/submitQuiz.php" method="post">
-        <input type="hidden" name="courseId" value="2"> 
-            <?php foreach ($questions as $questionId => $question): ?>
-                <div class="question-block">
-                    <p><strong><?php echo $question['text']; ?> (<?php echo $question['points']; ?> points)</strong></p>
-                    <?php foreach ($question['answers'] as $answer): ?>
-                        <input type="radio" name="q<?php echo $questionId; ?>" value="<?php echo $answer['id']; ?>">
-                        <?php echo $answer['text']; ?><br>
-                    <?php endforeach; ?>
+            <input type="hidden" name="courseId" value="2">
+            <div id="question-container">
+                <?php
+                $questionNumber = 1;
+                foreach ($questions as $questionId => $question):
+                ?>
+                <div class="question-block" id="question-<?php echo $questionNumber; ?>" data-question-id="<?php echo $questionId; ?>" style="display: none;">
+                    <p class="question"><?php echo $question['text']; ?> (<?php echo $question['points']; ?> points)</p>
+                    <div class="answer-options">
+                        <?php foreach ($question['answers'] as $answer): ?>
+                        <label>
+                            <input type="radio" name="q<?php echo $questionId; ?>" value="<?php echo $answer['id']; ?>">
+                            <?php echo $answer['text']; ?>
+                        </label>
+                        <?php endforeach; ?>
+                    </div>
+                    <div class="nav-buttons">
+                        <button class="btn prev-btn" onclick="navigateQuestion(<?php echo $questionNumber - 1; ?>)" style="display: none;">Previous</button>
+                        <?php if ($questionNumber === count($questions)): ?>
+                            <button class="btn submit-btn" onclick="submitQuiz()">Submit Quiz</button>
+                        <?php else: ?>
+                            <button class="btn next-btn" onclick="navigateQuestion(<?php echo $questionNumber + 1; ?>)">Next</button>
+                        <?php endif; ?>
+                    </div>
                 </div>
-                <br>
-            <?php endforeach; ?>
-            <button type="submit" class="btn submit-btn">Submit Quiz</button>
+                <?php $questionNumber++; endforeach; ?>
+            </div>
         </form>
     </div>
-</section>
+
+    <!-- Sidebar with Question Numbers -->
+    <div class="sidebar">
+        <h2>Questions</h2>
+        <div class="question-numbers">
+            <?php
+            $questionNumber = 1;
+            foreach ($questions as $questionId => $question):
+            ?>
+            <div class="question-number" id="question-number-<?php echo $questionNumber; ?>" onclick="navigateQuestion(<?php echo $questionNumber; ?>)">
+                <?php echo $questionNumber; ?>
+            </div>
+            <?php $questionNumber++; endforeach; ?>
+        </div>
+    </div>
+</div>
+
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/Javify/includes/footer.php'; ?>
+
 </body>
 </html>
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/Javify/includes/footer.php'; ?>
