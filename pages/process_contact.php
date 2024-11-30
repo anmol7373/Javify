@@ -6,10 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = htmlspecialchars(trim($_POST["email"]));
     $message = htmlspecialchars(trim($_POST["message"]));
 
-    // Here, you would typically send this message as an email or store it in the database
-    // For example: mail($recipient, $subject, $message, $headers);
 
-    // Display a thank-you message and redirect timer
     echo "<!DOCTYPE html>
     <html lang='en'>
     <head>

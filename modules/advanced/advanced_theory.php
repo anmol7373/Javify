@@ -1,14 +1,18 @@
 <?php
+// Include the header file for consistent structure
 include $_SERVER['DOCUMENT_ROOT'] . '/Javify/includes/header.php';
 
+// Check if the user is logged in
 $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
 if (!$isLoggedIn) {
+    // Redirect the user to the homepage if not logged in
     header("Location: " . BASE_URL . "index.php");
     exit;
 }
+
+// Retrieve the username of the logged-in user
 $username = $isLoggedIn ? $_SESSION['username'] : '';
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
