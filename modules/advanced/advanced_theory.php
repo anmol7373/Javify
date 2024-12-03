@@ -20,7 +20,6 @@ $username = $isLoggedIn ? $_SESSION['username'] : '';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javify - Advanced Java Theory</title>
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/style.css">
-    <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/advanced_theory.css">
     <script src="<?php echo BASE_URL; ?>js/bot.js" defer></script>
 </head>
 <body id="advanced-page">
@@ -28,44 +27,42 @@ $username = $isLoggedIn ? $_SESSION['username'] : '';
 <section id="advanced-content">
     <div class="content-container">
         <h1>Advanced Java Theory</h1>
+        <p>Welcome, <strong><?php echo htmlspecialchars($username); ?></strong>! Expand the sections below to dive deeper into Advanced Java topics.</p>
 
         <div class="card-container">
             <!-- Card 1 -->
             <div class="card">
-                <div class="card-header">
+                <div class="card-header" onclick="toggleCard(this)">
                     1. Java Memory Management and Garbage Collection
                     <span class="toggle-icon">+</span>
                 </div>
                 <div class="card-body">
-                    <p>Understanding memory management is crucial, especially in performance-critical environments. Java's Garbage Collection (GC) system reclaims memory by deallocating unreachable objects.</p>
+                    <p>Understanding memory management is crucial in performance-critical environments. Java's Garbage Collection (GC) reclaims memory by deallocating unreachable objects.</p>
                     <ul>
-                        <li><strong>Serial Garbage Collector:</strong> Single-threaded, for applications with small heaps.</li>
-                        <li><strong>Parallel Garbage Collector:</strong> Multithreaded, designed for maximizing throughput.</li>
-                        <li><strong>CMS (Concurrent Mark-Sweep) Collector:</strong> Reduces pause times for low-latency applications.</li>
+                        <li><strong>Serial Garbage Collector:</strong> Single-threaded, for small heaps.</li>
+                        <li><strong>Parallel Garbage Collector:</strong> Multithreaded for maximizing throughput.</li>
+                        <li><strong>CMS Collector:</strong> Reduces pause times for low-latency applications.</li>
                         <li><strong>G1 Garbage Collector:</strong> Balances throughput and latency with region-based heap management.</li>
                     </ul>
-                    <p><strong>Tip:</strong> Use JVM flags like <code>-XX:+UseG1GC</code> to configure the garbage collector.</p>
+                    <pre><code>-XX:+UseG1GC</code></pre>
                 </div>
             </div>
 
             <!-- Card 2 -->
             <div class="card">
-                <div class="card-header">
+                <div class="card-header" onclick="toggleCard(this)">
                     2. Java Concurrency and Synchronization Mechanisms
                     <span class="toggle-icon">+</span>
                 </div>
-                <div class="card-body">
+                <div class="card-body"><br>
                     <h3>Locks and the ReentrantLock Class</h3>
-                    <p>While <code>synchronized</code> ensures thread safety, the <code>ReentrantLock</code> class provides advanced locking mechanisms:</p>
+                    <p>ReentrantLock offers advanced thread synchronization:</p>
                     <ul>
                         <li>Try acquiring a lock without blocking (<code>tryLock()</code>).</li>
                         <li>Interrupt waiting threads (<code>lockInterruptibly()</code>).</li>
                         <li>Fairness policies for lock acquisition.</li>
                     </ul>
-
-                    <h3>ThreadLocal Variables</h3>
-                    <p>Each thread gets its own instance of a <code>ThreadLocal</code> variable:</p>
-                    <pre><code>
+                    <pre>
 public class UserSession {
     private static final ThreadLocal<String> session = new ThreadLocal<>();
 
@@ -77,26 +74,19 @@ public class UserSession {
         return session.get();
     }
 }
-                    </code></pre>
-
-                    <h3>Fork/Join Framework</h3>
-                    <p>Introduced in Java 7, it uses divide-and-conquer tasks for efficient parallelism:</p>
-                    <pre><code>
-ForkJoinPool pool = new ForkJoinPool();
-pool.invoke(new RecursiveTaskExample());
-                    </code></pre>
+                    </pre>
                 </div>
             </div>
 
             <!-- Card 3 -->
             <div class="card">
-                <div class="card-header">
+                <div class="card-header" onclick="toggleCard(this)">
                     3. Design Patterns in Java
                     <span class="toggle-icon">+</span>
                 </div>
-                <div class="card-body">
+                <div class="card-body"><br>
                     <h3>Singleton Pattern</h3>
-                    <pre><code>
+                    <pre>
 public class Singleton {
     private static Singleton instance;
 
@@ -109,33 +99,19 @@ public class Singleton {
         return instance;
     }
 }
-                    </code></pre>
-
-                    <h3>Observer Pattern</h3>
-                    <p>Used for distributed event-handling:</p>
-                    <pre><code>
-interface Observer {
-    void update(String event);
-}
-
-class EventObserver implements Observer {
-    public void update(String event) {
-        System.out.println("Event received: " + event);
-    }
-}
-                    </code></pre>
+                    </pre>
                 </div>
             </div>
 
             <!-- Card 4 -->
             <div class="card">
-                <div class="card-header">
+                <div class="card-header" onclick="toggleCard(this)">
                     4. Java Stream API Advanced Operations
                     <span class="toggle-icon">+</span>
                 </div>
-                <div class="card-body">
+                <div class="card-body"><br>
                     <h3>flatMap()</h3>
-                    <pre><code>
+                    <pre>
 List<List<String>> nestedList = Arrays.asList(
     Arrays.asList("a", "b"),
     Arrays.asList("c", "d")
@@ -144,11 +120,9 @@ List<List<String>> nestedList = Arrays.asList(
 List<String> flatList = nestedList.stream()
     .flatMap(Collection::stream)
     .collect(Collectors.toList());
-                    </code></pre>
+                    </pre>
                 </div>
             </div>
-
-            <!-- Add more cards as needed -->
         </div>
 
         <!-- Quiz Button -->
@@ -159,21 +133,21 @@ List<String> flatList = nestedList.stream()
 </section>
 
 <script>
-    // Toggle functionality for cards
-    document.querySelectorAll('.card-header').forEach(header => {
-        header.addEventListener('click', () => {
-            const cardBody = header.nextElementSibling;
-            cardBody.style.maxHeight = cardBody.style.maxHeight ? null : `${cardBody.scrollHeight}px`;
-            header.querySelector('.toggle-icon').textContent =
-                cardBody.style.maxHeight ? '-' : '+';
-        });
-    });
+    function toggleCard(element) {
+        const cardBody = element.nextElementSibling;
+        const icon = element.querySelector('.toggle-icon');
+        if (cardBody.style.maxHeight) {
+            cardBody.style.maxHeight = null;
+            icon.textContent = '+';
+        } else {
+            cardBody.style.maxHeight = cardBody.scrollHeight + 'px';
+            icon.textContent = '−';
+        }
+    }
 </script>
 
-<!-- Include Footer -->
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/Javify/includes/footer.php'; ?>
 
-<!-- Floating Bot Container -->
 <div id="floating-bot">
     <div id="bot-header">Javify Bot</div>
     <div id="bot-content">
