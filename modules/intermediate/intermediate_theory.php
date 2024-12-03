@@ -23,6 +23,7 @@ $username = $isLoggedIn ? $_SESSION['username'] : '';
     <!-- Link to the main stylesheet and the specific theory page stylesheet -->
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/style.css">
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/theory.css">
+    <script src="<?php echo BASE_URL; ?>js/bot.js" defer></script>
 </head>
 <body id="intermediate-page">
 
@@ -186,6 +187,14 @@ numbers.stream()
         }
     }
 </script>
+
+<!-- Floating Bot Container -->
+<div id="floating-bot">
+    <div id="bot-header">Javify Bot</div>
+    <div id="bot-content">
+        <p>Click on a highlighted term to see its explanation!</p>
+    </div>
+</div>
 
 </body>
 </html>

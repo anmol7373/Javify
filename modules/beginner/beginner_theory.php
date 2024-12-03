@@ -22,6 +22,7 @@ $username = $isLoggedIn ? $_SESSION['username'] : '';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beginner Java Theory - Javify</title>
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/style.css">
+    <script src="<?php echo BASE_URL; ?>js/bot.js" defer></script>
 </head>
 <body id="beginner-page">
 
@@ -114,6 +115,14 @@ $username = $isLoggedIn ? $_SESSION['username'] : '';
         }
     }
 </script>
+
+<!-- Floating Bot Container -->
+<div id="floating-bot">
+    <div id="bot-header">Javify Bot</div>
+    <div id="bot-content">
+        <p>Click on a highlighted term to see its explanation!</p>
+    </div>
+</div>
 
 </body>
 </html>
