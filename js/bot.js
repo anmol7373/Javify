@@ -40,15 +40,51 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    const introBubble = document.getElementById("intro-speaking-bubble");
+    const botIconContainer = document.getElementById("bot-icon-container");
+    const floatingBot = document.getElementById("floating-bot");
+    const botHeader = document.getElementById("bot-header");
+    const botContent = document.getElementById("bot-content");
+
+    // Function to hide the intro bubble
+    const hideIntroBubble = () => {
+        introBubble.style.opacity = "0";
+        introBubble.style.visibility = "hidden";
+    };
+
+    // Function to show the intro bubble
+    const showIntroBubble = () => {
+        introBubble.style.opacity = "1";
+        introBubble.style.visibility = "visible";
+    };
+
+    // Handle bot toggle
+    botIconContainer.addEventListener("click", () => {
+        const isOpen = floatingBot.classList.toggle("open");
+        if (isOpen) {
+            hideIntroBubble(); // Hide the bubble when the bot is opened
+        } else {
+            showIntroBubble(); // Show the bubble when the bot is closed
+        }
+    });
+
     // Add event listener for clicks on highlighted terms
     document.querySelectorAll(".highlight").forEach(element => {
         element.addEventListener("click", () => {
             const term = element.getAttribute("data-term");
-            const botContent = document.getElementById("bot-content");
+
+            // Update bot content
             if (definitions[term]) {
                 botContent.innerHTML = `<p><strong>${term}:</strong> ${definitions[term]}</p>`;
             } else {
                 botContent.innerHTML = `<p><strong>${term}:</strong> Definition not found.</p>`;
+            }
+
+            // Open the bot if it's not already open
+            if (!floatingBot.classList.contains("open")) {
+                floatingBot.classList.add("open");
+                botHeader.textContent = "Javify Bot"; // Update bot header
+                hideIntroBubble(); // Hide the intro bubble
             }
         });
     });

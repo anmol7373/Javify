@@ -1910,56 +1910,165 @@ pre code {
     }
 }
 
+/*---------------------------------------------------------
+|                         FLOATING BOT                     |
+-----------------------------------------------------------*/
+
 /* Floating Bot Styles */
 #floating-bot {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 300px;
-    background-color: #ffe6cc;
-    border: 1px solid #ffcc99;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    font-family: Arial, sans-serif;
+    bottom: 30px; 
+    right: 30px; 
+    width: 70px; 
+    height: 70px;
+    background-color: #FFCC99;
+    border-radius: 50%;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    font-family: 'Arial', sans-serif;
     z-index: 1000;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s ease;
+}
+
+/* Introductory Speaking Bubble */
+#intro-speaking-bubble {
+    position: absolute;
+    top: -40px; /* Position above the bot icon */
+    left: -130px; /* Align horizontally */
+    background-color: #FFE4B5;
+    color: #4D2A22;
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+    z-index: 1000;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+/* Arrow for the Intro Bubble */
+#intro-speaking-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px;
+    border-style: solid;
+    border-color: #FFE4B5 transparent transparent transparent;
+}
+
+/* Hidden State for the Bubble */
+#intro-speaking-bubble.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#floating-bot.open {
+    width: 350px; /* Slightly reduced width */
+    height: 400px; /* Reduced height */
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFF3E0;
 }
 
 #floating-bot #bot-header {
-    background-color: #ffcc99;
-    color: #4d2a22;
+    display: none;
+    font-size: 1.8rem; 
     font-weight: bold;
+    color: #FF9966;
+    margin-bottom: 15px; 
     text-align: center;
-    padding: 10px;
-    border-radius: 10px 10px 0 0;
+}
+
+#floating-bot.open #bot-header {
+    display: block;
 }
 
 #floating-bot #bot-content {
-    padding: 15px;
-    font-size: 0.9rem;
-    color: #4d2a22;
-    overflow-y: auto;
-    max-height: 200px;
+    display: none;
+    font-size: 1rem;
+    color: #4D2A22;
+    background-color: #FFF3E0;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 90%; 
+    line-height: 1.8;
+    overflow-y: auto; 
+    max-height: 200px; 
 }
 
-#floating-bot #bot-content p {
-    margin: 10px 0;
+#floating-bot.open #bot-content {
+    display: block;
 }
 
+/* Robot Icon Styles */
+#bot-icon-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70px;
+    height: 70px;
+    background: #FF9966;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#bot-icon {
+    font-size: 2rem; 
+    color: #FFFFFF;
+}
+
+.speaking-bubble {
+    position: absolute;
+    top: -25px;
+    left: 75px;
+    background-color: #FFF3E0;
+    color: #4D2A22;
+    padding: 10px 20px; 
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-size: 1rem;
+    font-weight: bold;
+    display: none;
+}
+
+#floating-bot.open .speaking-bubble {
+    display: block;
+}
+
+/* Fix for Overflow */
+#floating-bot img, #bot-icon {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
 
 /* Highlight Difficult Terms */
 .highlight {
-    background-color: #FFF3E0; /* Soft beige for subtle highlighting */
-    color: #6D4C41; /* Slightly darker text for contrast */
+    background-color: #FFF3E0;
+    color: #6D4C41;
     cursor: pointer;
-    border-bottom: 1px dashed #A67C52; /* Light dashed underline for emphasis */
-    padding: 1px 2px; /* Minimal padding for neat appearance */
-    border-radius: 2px; /* Slight rounding for polish */
-    transition: background-color 0.2s ease, color 0.2s ease; /* Smooth hover transition */
+    border-bottom: 1px dashed #A67C52;
+    padding: 2px 4px;
+    border-radius: 2px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Hover Effect for Highlighted Terms */
 .highlight:hover {
-    background-color: #FFE0B2; /* Light orange tint when hovered */
-    color: #4D2A22; /* Slightly darker text for hover */
-    border-bottom: 1px solid #4D2A22; /* Solid underline on hover */
+    background-color: #FFE0B2;
+    color: #4D2A22;
 }
