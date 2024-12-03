@@ -20,8 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
         "reduce": "An operation in Streams API to combine elements into a single result.",
 
         // Advanced Definitions
-        "Memory Management": "Managing memory allocation and deallocation for applications.",
-        "Garbage Collection": "A Java feature that automatically reclaims unused memory.",
         "Serial Garbage Collector": "A single-threaded garbage collector for small heaps.",
         "Parallel Garbage Collector": "A multi-threaded garbage collector to maximize throughput.",
         "CMS Garbage Collector": "A low-latency garbage collector for applications that need shorter pause times.",

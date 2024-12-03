@@ -22,7 +22,6 @@ $username = $isLoggedIn ? $_SESSION['username'] : '';
     <title>Intermediate Java Theory - Javify</title>
     <!-- Link to the main stylesheet and the specific theory page stylesheet -->
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/style.css">
-    <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/theory.css">
     <script src="<?php echo BASE_URL; ?>js/bot.js" defer></script>
 </head>
 <body id="intermediate-page">
@@ -49,19 +48,19 @@ $username = $isLoggedIn ? $_SESSION['username'] : '';
                     </ul>
                     <!-- Code snippet showing the usage of an interface and its implementation -->
                     <pre>
-interface Animal {
-    void eat();
-    void sleep();
-}
+                        interface Animal {
+                            void eat();
+                            void sleep();
+                        }
 
-class Dog implements Animal {
-    public void eat() {
-        System.out.println("Dog is eating");
-    }
-    public void sleep() {
-        System.out.println("Dog is sleeping");
-    }
-}
+                        class Dog implements Animal {
+                            public void eat() {
+                                System.out.println("Dog is eating");
+                            }
+                            public void sleep() {
+                                System.out.println("Dog is sleeping");
+                            }
+                        }
                     </pre>
                 </div>
             </div>
@@ -79,18 +78,18 @@ class Dog implements Animal {
                     </ul>
                     <!-- Code snippet showing the usage of abstract classes and their implementation -->
                     <pre>
-abstract class Vehicle {
-    abstract void startEngine();
-    void stopEngine() {
-        System.out.println("Engine stopped");
-    }
-}
+                        abstract class Vehicle {
+                            abstract void startEngine();
+                            void stopEngine() {
+                                System.out.println("Engine stopped");
+                            }
+                        }
 
-class Car extends Vehicle {
-    void startEngine() {
-        System.out.println("Car engine started");
-    }
-}
+                        class Car extends Vehicle {
+                            void startEngine() {
+                                System.out.println("Car engine started");
+                            }
+                        }
                     </pre>
                 </div>
             </div>
@@ -108,15 +107,15 @@ class Car extends Vehicle {
                     </ul>
                     <!-- Code snippet showing the usage of generics in Java -->
                     <pre>
-class Box<T> {
-    private T item;
-    public void setItem(T item) { this.item = item; }
-    public T getItem() { return item; }
-}
+                        class Box<T> {
+                            private T item;
+                            public void setItem(T item) { this.item = item; }
+                            public T getItem() { return item; }
+                        }
 
-Box<Integer> integerBox = new Box<>();
-integerBox.setItem(10);
-System.out.println(integerBox.getItem());
+                        Box<Integer> integerBox = new Box<>();
+                        integerBox.setItem(10);
+                        System.out.println(integerBox.getItem());
                     </pre>
                 </div>
             </div>
@@ -134,8 +133,8 @@ System.out.println(integerBox.getItem());
                     </ul>
                     <!-- Code snippet showing the usage of lambda expressions -->
                     <pre>
-Calculator add = (a, b) -> a + b;
-System.out.println("Sum: " + add.operate(5, 3));
+                        Calculator add = (a, b) -> a + b;
+                        System.out.println("Sum: " + add.operate(5, 3));
                     </pre>
                 </div>
             </div>
@@ -153,9 +152,9 @@ System.out.println("Sum: " + add.operate(5, 3));
                     </ul>
                     <!-- Code snippet showing the usage of Streams API -->
                     <pre>
-numbers.stream()
-       .filter(n -> n % 2 == 0)
-       .forEach(System.out::println);
+                        numbers.stream()
+                            .filter(n -> n % 2 == 0)
+                            .forEach(System.out::println);
                     </pre>
                 </div>
             </div>
