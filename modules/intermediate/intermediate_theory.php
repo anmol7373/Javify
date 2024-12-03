@@ -199,6 +199,7 @@ $username = $isLoggedIn ? $_SESSION['username'] : '';
         <span id="bot-icon">&#129302;</span> <!-- Robot icon -->
         <div id="intro-speaking-bubble">Click me for help!</div>
     </div>
+    <div class="speaking-bubble">
         Hi, <span id="bot-username"><?php echo $username; ?></span>! How can I help you?
     </div>
     <div id="bot-header">Javify Bot</div>
