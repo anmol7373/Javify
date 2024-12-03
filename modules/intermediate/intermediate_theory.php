@@ -22,6 +22,7 @@ $username = $isLoggedIn ? $_SESSION['username'] : '';
     <title>Intermediate Java Theory - Javify</title>
     <!-- Link to the main stylesheet and the specific theory page stylesheet -->
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="<?php echo BASE_URL; ?>js/bot.js" defer></script>
 </head>
 <body id="intermediate-page">
@@ -188,7 +189,18 @@ $username = $isLoggedIn ? $_SESSION['username'] : '';
 </script>
 
 <!-- Floating Bot Container -->
+<?php
+    // Assuming username is already fetched and stored in the session (as in the navbar)
+    $username = isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'User';
+?>
+
 <div id="floating-bot">
+    <div id="bot-icon-container">
+        <span id="bot-icon">&#129302;</span> <!-- Robot icon -->
+        <div id="intro-speaking-bubble">Click me for help!</div>
+    </div>
+        Hi, <span id="bot-username"><?php echo $username; ?></span>! How can I help you?
+    </div>
     <div id="bot-header">Javify Bot</div>
     <div id="bot-content">
         <p>Click on a highlighted term to see its explanation!</p>
