@@ -21,6 +21,7 @@ $username = $isLoggedIn ? $_SESSION['username'] : '';
     <title>Javify - Advanced Java Theory</title>
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/style.css">
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/advanced_theory.css">
+    <script src="<?php echo BASE_URL; ?>js/bot.js" defer></script>
 </head>
 <body id="advanced-page">
 
@@ -171,6 +172,14 @@ List<String> flatList = nestedList.stream()
 
 <!-- Include Footer -->
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/Javify/includes/footer.php'; ?>
+
+<!-- Floating Bot Container -->
+<div id="floating-bot">
+    <div id="bot-header">Javify Bot</div>
+    <div id="bot-content">
+        <p>Click on a highlighted term to see its explanation!</p>
+    </div>
+</div>
 
 </body>
 </html>

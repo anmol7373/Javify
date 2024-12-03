@@ -1926,3 +1926,57 @@ pre code {
         margin-bottom: 20px;
     }
 }
+
+/* Floating Bot Styles */
+#floating-bot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background-color: #ffe6cc;
+    border: 1px solid #ffcc99;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+    z-index: 1000;
+}
+
+#floating-bot #bot-header {
+    background-color: #ffcc99;
+    color: #4d2a22;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+}
+
+#floating-bot #bot-content {
+    padding: 15px;
+    font-size: 0.9rem;
+    color: #4d2a22;
+    overflow-y: auto;
+    max-height: 200px;
+}
+
+#floating-bot #bot-content p {
+    margin: 10px 0;
+}
+
+
+/* Highlight Difficult Terms */
+.highlight {
+    background-color: #FFF3E0; /* Soft beige for subtle highlighting */
+    color: #6D4C41; /* Slightly darker text for contrast */
+    cursor: pointer;
+    border-bottom: 1px dashed #A67C52; /* Light dashed underline for emphasis */
+    padding: 1px 2px; /* Minimal padding for neat appearance */
+    border-radius: 2px; /* Slight rounding for polish */
+    transition: background-color 0.2s ease, color 0.2s ease; /* Smooth hover transition */
+}
+
+/* Hover Effect for Highlighted Terms */
+.highlight:hover {
+    background-color: #FFE0B2; /* Light orange tint when hovered */
+    color: #4D2A22; /* Slightly darker text for hover */
+    border-bottom: 1px solid #4D2A22; /* Solid underline on hover */
+}
