@@ -1,3 +1,5 @@
+<!-- Handle register page -->
+
 <?php
 include $_SERVER['DOCUMENT_ROOT'] . '/Javify/includes/header.php';
 include_once '../config.php';

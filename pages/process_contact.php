@@ -1,3 +1,5 @@
+<!-- Handle contact form submission -->
+
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Javify/config.php';
 

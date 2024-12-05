@@ -1,3 +1,5 @@
+<!-- Handle theory pages -->
+
 <?php
 // Include the header file from the includes directory, allowing for consistent header content across pages
 include $_SERVER['DOCUMENT_ROOT'] . '/Javify/includes/header.php';

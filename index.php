@@ -1,3 +1,5 @@
+<!-- Main page -->
+
 <?php
 include 'config.php'; // Include the base URL configuration file
 
