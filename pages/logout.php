@@ -1,3 +1,5 @@
+<!-- Handle logout session -->
+
 <?php
     session_start();
     echo '<pre>';

@@ -1,3 +1,5 @@
+<!-- Handle quiz submissions -->
+
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Javify/config.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/Javify/includes/header.php';
